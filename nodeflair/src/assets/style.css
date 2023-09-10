@@ -1,0 +1,268 @@
+:root {
+    --clr-primary: #1fc76a;
+    --clr-bg-specialisation: #ddf7e9;
+    --clr-reg-text: #000;
+    --clr-tech-stack-text: #838383;
+    --clr-bg-tech-stack: #f1f1f1;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    vertical-align: top;
+    box-sizing: inherit;
+}
+
+body {
+    background: #f3f2ef;
+    font-size: 0.85rem;
+    /* min-height: 100%; */
+    width: 100%;
+    line-height: 1.5;
+}
+
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "open sans", helvetica, arial, sans-serif;
+}
+
+/* Utility classes */
+.d-flex {
+    display: flex;
+}
+
+.paragraph {
+    margin-bottom: 2px;
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+    border-radius: 4px;
+}
+
+.svg-inline--fa {
+    height: 1em;
+    vertical-align: -0.125em;
+    display: inline-block;
+}
+
+.heading {
+    font-size: 16px;
+}
+
+.active {
+    outline: 3px solid var(--clr-primary);
+}
+
+a {
+    text-decoration: none;
+}
+
+a, a:visited, a:hover, a:active {
+    color: inherit;
+}
+
+/* Container */
+.container {
+    max-width: 1140px;
+    margin-inline: auto;
+}
+
+/* Job Listing */
+#selected {
+    outline: 3px solid;
+    outline-color: var(--clr-primary);
+}
+
+.job-listing-container {
+    padding: 5px;
+}
+
+.job-listing.card,
+.jobs-display-right {
+    cursor: pointer;
+    height: 100%;
+    position: relative;
+    flex-direction: column;
+    font-size: 14px;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+    transition: 0.2s;
+    border-radius: 8px;
+    /* padding-bottom: 40px; */
+    padding: 20px;
+    background-color: #fff;
+}
+
+.job-listing.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25), 0 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+.job-listing-link {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 166px;
+}
+
+.job-listing-top {
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.job-listing-para span:nth-child(2) {
+    margin-left: 10px;
+}
+
+.job-listing-specialisation-container {
+    padding-left: 10px;
+    margin-left: auto;
+}
+
+.job-listing-specialisation-tag {
+    padding: 5px 8px;
+    border-radius: 5px;
+    background: var(--clr-bg-specialisation);
+    white-space: nowrap;
+}
+
+.job-listing-specialisation-tag>span {
+    color: var(--clr-primary);
+    width: max-content;
+    font-weight: 600;
+}
+
+.job-listing-middle {
+    padding-left: 56px;
+}
+
+.job-listing-recency-container>span {
+    color: var(--clr-primary);
+    font-weight: bold;
+}
+
+.job-listing-country {
+    margin: 0 0 6px 10px;
+    white-space: pre-wrap;
+    color: var(--clr-tech-stack-text);
+}
+
+.job-listing-top {
+    gap : 10px;
+}
+
+.job-listing-top-portion::after {
+    content: "";
+    display: block;
+    margin-top: 5px;
+    border-bottom: 1px solid #dfdfdf;
+    margin-bottom: 5px;
+}
+
+.job-listing-bottom {
+    width: 100%;
+    bottom: 0;
+    /* padding: 0 10px; */
+    max-height: 40px;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    background-color: #ffffff;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.job-listing-tech-stack {
+    color: var(--clr-tech-stack-text);
+    display: inline-block;
+    padding: 5px 8px;
+    overflow: hidden;
+    max-width: 90%;
+    font-family: "Roboto Mono", "Consolas", monospace;
+    font-weight: bold;
+    border-radius: 5px;
+    flex-shrink: 0;
+    /* text-overflow: ellipsis; */
+    background-color: #f1f1f1;
+}
+
+.job-listing-tech-stack:not(:first-child) {
+    margin-left: 5px;
+}
+
+/* Job Display */
+.jobs-display {
+    position: relative;
+    padding: 5px 10px;
+}
+
+.jobs-display-left {
+    width: 45%;
+}
+
+.jobs-display-right {
+    position : sticky;
+    top: 10px;
+    margin: 5px 0px 0px 10px;
+    /* right : 25px; */
+    width: 50%;
+    height: 100vh;
+}
+
+@media (min-width: 1021px) {
+    .job-listing-link {
+        display: none;
+    }
+}
+
+@media (max-width : 1020px) {
+    .jobs-display-right {
+        display : none;
+    }
+
+    .jobs-display-left {
+        width : 100%;
+    }
+    
+    .job-listing-bottom {
+        max-width: 1000px;
+    }
+    
+    .active {
+        outline : none;
+    }
+}
+
+@media (max-width: 440px) {
+    .job-listing-bottom {
+        max-width : 340px;
+    }
+
+    .job-listing-top {
+        flex-wrap : wrap;
+    }
+
+    .job-listing-middle {
+        padding-left: 0px;
+    }
+
+    .job-listing-desc-container {
+        order : 3;
+        flex-basis: 100%;
+        flex-shrink: 1;
+    }
+
+    .job-listing-specialisation-container {
+        order : 2;
+    }
+}
