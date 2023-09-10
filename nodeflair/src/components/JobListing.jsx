@@ -1,3 +1,4 @@
+import React from 'react'
 import Location from '../assets/Location.jsx'
 import TechStack from './TechStack.jsx'
 
